@@ -4,8 +4,17 @@
   "description": "Backend for Space Zoologist",
   "main": "index.js",
   "scripts": {
+    "dev": "npx nodemon server.js",
+    "prod": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Kyle Mitchell",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.13.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
 }
