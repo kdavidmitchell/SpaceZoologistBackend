@@ -15,7 +15,7 @@ module.exports = app => {
         var userAccount = await Account.findOne({ username: username});
         if (userAccount == null) {
             // Create new account.
-            console.log("Create a new account");
+            console.log("Creating a new account...");
 
             var newAccount = new Account({
                 username : username,
@@ -33,7 +33,7 @@ module.exports = app => {
                 userAccount.lastAuthentication = Date.now();
                 await userAccount.save();
 
-                console.log("Retrieving account..");
+                console.log("Retrieving account...");
                 res.send(userAccount);
                 return;
             }
