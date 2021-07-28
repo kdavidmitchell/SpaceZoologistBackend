@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.json());
 
 // Setting up DB
 const mongoose = require('mongoose');

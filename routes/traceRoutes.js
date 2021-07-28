@@ -6,10 +6,11 @@ const DayTrace = mongoose.model('daytraces');
 
 module.exports = app => {
     app.post('/traces/playtrace', async (req, res) => {
+        console.log("Received playtrace request.");
 
         var response = {};
 
-        const { playtrace } = req.body;
+        const playtrace = req.body;
         if (playtrace == null) {
             response.code = 1;
             response.msg = "Playtrace not found in request.";
@@ -48,8 +49,10 @@ module.exports = app => {
                     balanceStart : daytrace.balanceStart,
                     balanceEnd : daytrace.balanceEnd
                 });
+                await newDaytrace.save();
                 newLeveltrace.dayTraces.push(newDaytrace);
             }
+            await newLeveltrace.save();
             newPlaytrace.levelTraces.push(newLeveltrace);
         }
         await newPlaytrace.save();
