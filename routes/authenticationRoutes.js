@@ -62,7 +62,6 @@ module.exports = app => {
             console.log("Creating a new account...");
 
             crypto.randomBytes(32, function(err, salt) {
-                accountSalt = salt;
                 argon2i.hash(password, salt).then(async (hash) => {
                     // Create the account with the hashed password.
                     var newAccount = new Account({

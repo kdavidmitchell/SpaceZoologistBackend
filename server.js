@@ -12,13 +12,12 @@ mongoose.connect(keys.mongoURI, {useNewUrlParser: true, useUnifiedTopology: true
 // Setup database models
 require('./model/Account');
 require('./model/PlayTrace');
+require('./model/LevelTrace');
+require('./model/DayTrace');
 
 // Setup the routes
 require('./routes/authenticationRoutes')(app);
-
-app.get('/playtrace', async (req, res) => {
-    // placeholder
-});
+require('./routes/traceRoutes')(app);
 
 app.listen(keys.port, () => {
     console.log("Listening on " + keys.port);
