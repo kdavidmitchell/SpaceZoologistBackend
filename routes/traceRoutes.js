@@ -5,7 +5,7 @@ const LevelTrace = mongoose.model('leveltraces');
 const DayTrace = mongoose.model('daytraces');
 
 module.exports = app => {
-    app.post('/playtrace', async (req, res) => {
+    app.post('/traces/playtrace', async (req, res) => {
 
         var response = {};
 
