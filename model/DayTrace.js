@@ -8,6 +8,7 @@ const dayTraceSchema = new Schema({
     dayDeltaTime: Number,
     balanceStart: Number,
     balanceEnd: Number,
+    journalTraces: [{ type: Schema.Types.ObjectId, ref: 'journaltraces' }],
 });
 
 mongoose.model('daytraces', dayTraceSchema);

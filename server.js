@@ -15,6 +15,7 @@ require('./model/Account');
 require('./model/PlayTrace');
 require('./model/LevelTrace');
 require('./model/DayTrace');
+require('./model/JournalTrace');
 
 // Setup the routes
 require('./routes/authenticationRoutes')(app);

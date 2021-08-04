@@ -3,6 +3,7 @@ const Account = mongoose.model('accounts');
 const PlayTrace = mongoose.model('playtraces');
 const LevelTrace = mongoose.model('leveltraces');
 const DayTrace = mongoose.model('daytraces');
+const JournalTrace = mongoose.model('journaltraces');
 
 module.exports = app => {
     app.post('/traces/playtrace', async (req, res) => {
@@ -49,6 +50,20 @@ module.exports = app => {
                     balanceStart : daytrace.balanceStart,
                     balanceEnd : daytrace.balanceEnd
                 });
+
+                for (var k = 0; k < daytrace.journalTraces.length; k++)
+                {
+                    console.log("Creating journal trace...");
+                    var journaltrace = daytrace.journalTraces[k];
+                    var newJournalTrace = new JournalTrace({
+                        journalStartTime : journaltrace.journalStartTime,
+                        journalEndTime : journaltrace.journalEndTime,
+                        journalDeltaTime : journaltrace.journalDeltaTime,
+                        journalNotes : journaltrace.journalNotes
+                    });
+                    await newLeveltrace.save();
+                    newDaytrace.journalTraces.push(newJournalTrace);
+                }
                 await newDaytrace.save();
                 newLeveltrace.dayTraces.push(newDaytrace);
             }
