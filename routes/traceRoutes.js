@@ -5,9 +5,11 @@ const LevelTrace = mongoose.model('leveltraces');
 const DayTrace = mongoose.model('daytraces');
 const JournalTrace = mongoose.model('journaltraces');
 
+const debugDB = require('../debuggers.js').db;
+
 module.exports = app => {
     app.post('/traces/playtrace', async (req, res) => {
-        console.log("Received playtrace request.");
+        debugDB("Received playtrace request.");
 
         var response = {};
 
@@ -19,7 +21,7 @@ module.exports = app => {
             return;
         }
 
-        console.log("Creating new playtrace...");
+        debugDB("Creating new playtrace...");
         var newPlaytrace = new PlayTrace({
             playerID : playtrace.playerID,
             sessionID : playtrace.sessionID,
@@ -27,7 +29,7 @@ module.exports = app => {
         });
 
         for (var i = 0; i < playtrace.levelTraces.length; i++) {
-            console.log("Creating level trace...");
+            debugDB("Creating level trace...");
             var leveltrace = playtrace.levelTraces[i];
             var newLeveltrace = new LevelTrace({
                 levelID : leveltrace.levelID,
@@ -40,7 +42,7 @@ module.exports = app => {
 
             for (var j = 0; j < leveltrace.dayTraces.length; j++)
             {
-                console.log("Creating day trace...");
+                debugDB("Creating day trace...");
                 var daytrace = leveltrace.dayTraces[j];
                 var newDaytrace = new DayTrace({
                     dayID : daytrace.dayID,
@@ -53,7 +55,7 @@ module.exports = app => {
 
                 for (var k = 0; k < daytrace.journalTraces.length; k++)
                 {
-                    console.log("Creating journal trace...");
+                    debugDB("Creating journal trace...");
                     var journaltrace = daytrace.journalTraces[k];
                     var newJournalTrace = new JournalTrace({
                         journalStartTime : journaltrace.journalStartTime,

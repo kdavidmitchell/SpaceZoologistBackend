@@ -4,6 +4,8 @@ const Account = mongoose.model('accounts');
 const argon2i = require('argon2-ffi').argon2i;
 const crypto = require('crypto');
 
+const debugDB = require('../debuggers.js').db;
+
 module.exports = app => {
     // Routes
     app.post('/account/login', async (req, res) => {
@@ -59,7 +61,7 @@ module.exports = app => {
         var userAccount = await Account.findOne({ username: username}, '_id');
         if (userAccount == null) {
             // Create new account.
-            console.log("Creating a new account...");
+            debugDB("Creating a new account...");
 
             crypto.randomBytes(32, function(err, salt) {
                 argon2i.hash(password, salt).then(async (hash) => {

@@ -16,7 +16,10 @@
   "dependencies": {
     "argon2-ffi": "^2.0.0",
     "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "debug": "^2.6.9",
     "express": "^4.17.1",
+    "helmet": "^4.6.0",
     "mongoose": "^5.13.3"
   },
   "devDependencies": {
