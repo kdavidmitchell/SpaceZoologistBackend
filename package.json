@@ -2,6 +2,9 @@
   "name": "spacezoologistbackend",
   "version": "1.0.0",
   "description": "Backend for Space Zoologist",
+  "engines": {
+    "node": "16.3.0"
+  },
   "main": "index.js",
   "scripts": {
     "dev": "npx nodemon server.js",
