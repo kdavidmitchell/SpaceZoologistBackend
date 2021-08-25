@@ -1,0 +1,28 @@
+extends layout
+block content
+  .container
+      .row
+        .logo
+          h3
+           = title
+      .row
+        .span12
+          .mini-layout
+            h3 Playtraces
+             a(href='/export' style="margin-left: 60%;") Export to CSV
+            table.table.table-bordered
+              thead
+                tr
+                  th ID
+                  th Player ID
+                  th Session ID
+                  th Session Elapsed Time
+                  th Level Traces
+                if playtraces.length
+                each item in playtraces
+                 tr
+                   td #{item['_id']}
+                   td #{item['playerID']}
+                   td #{item['sessionID']}
+                   td #{item['sessionElapsedTime']}
+                   td #{item['levelTraces']}
