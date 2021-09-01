@@ -13,7 +13,15 @@ module.exports = app => {
     PlayTrace.find({}, function(err, playtraces) {
         if (err)
           res.send(err);
-        res.render('index', { title: 'Space Zoologist Database', playtraces: playtraces });
+        LevelTrace.find({}, function(err, leveltraces) {
+          if (err)
+            res.send(err);
+          DayTrace.find({}, function(err, daytraces) {
+            if (err)
+              res.send(err);
+        res.render('index', { title: 'Space Zoologist Database', playtraces: playtraces, leveltraces: leveltraces, daytraces: daytraces });
+        });
+      });
     });
   });
 
