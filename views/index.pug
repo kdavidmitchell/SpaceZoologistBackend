@@ -8,7 +8,7 @@ block content
       .row
         .span12
           .mini-layout
-            h3 Playtraces
+            h3 Play Traces
              a(href='/export' style="margin-left: 60%;") Export to CSV
             table.table.table-bordered
               thead
@@ -26,3 +26,45 @@ block content
                    td #{item['sessionID']}
                    td #{item['sessionElapsedTime']}
                    td #{item['levelTraces']}
+            h3 Level Traces
+            table.table.table-bordered
+              thead
+                tr
+                  th ID
+                  th Level ID
+                  th Level Start Time
+                  th Level End Time
+                  th Level Elapsed Time 
+                  th Level Elapsed Days 
+                  th Level Complete 
+                if leveltraces.length 
+                each item in leveltraces 
+                  tr 
+                    td #{item['_id']}
+                    td #{item['levelID']}
+                    td #{item['levelStartTime']}
+                    td #{item['levelEndTime']}
+                    td #{item['levelDeltaTime']}
+                    td #{item['levelElapsedDays']}
+                    td #{item['levelComplete']}
+            h3 Day Traces
+            table.table.table-bordered
+              thead
+                tr
+                  th ID
+                  th Day ID
+                  th Day Start Time
+                  th Day End Time
+                  th Day Elapsed Time 
+                  th Balance Start 
+                  th Balance End 
+                if daytraces.length 
+                each item in daytraces 
+                  tr 
+                    td #{item['_id']}
+                    td #{item['dayID']}
+                    td #{item['dayStartTime']}
+                    td #{item['dayEndTime']}
+                    td #{item['dayDeltaTime']}
+                    td #{item['balanceStart']}
+                    td #{item['balanceEnd']}
