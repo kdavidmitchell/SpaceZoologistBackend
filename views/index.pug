@@ -9,7 +9,7 @@ block content
         .span12
           .mini-layout
             h3 Play Traces
-             a(href='/export' style="margin-left: 60%;") Export to CSV
+             a(href='/exportplaytraces' style="margin-left: 60%;") Export to CSV
             table.table.table-bordered
               thead
                 tr
@@ -27,6 +27,7 @@ block content
                    td #{item['sessionElapsedTime']}
                    td #{item['levelTraces']}
             h3 Level Traces
+              a(href='/exportleveltraces' style="margin-left: 60%;") Export to CSV
             table.table.table-bordered
               thead
                 tr
@@ -48,6 +49,7 @@ block content
                     td #{item['levelElapsedDays']}
                     td #{item['levelComplete']}
             h3 Day Traces
+              a(href='/exportdaytraces' style="margin-left: 60%;") Export to CSV
             table.table.table-bordered
               thead
                 tr
