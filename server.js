@@ -30,6 +30,8 @@ require('./model/PlayTrace');
 require('./model/LevelTrace');
 require('./model/DayTrace');
 require('./model/JournalTrace');
+require('./model/SummaryTrace');
+require('./model/SetTrace');
 
 // Setup debugger
 const debugInit = require('./debuggers.js').init;

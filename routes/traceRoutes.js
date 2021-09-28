@@ -81,8 +81,8 @@ module.exports = app => {
         return;
     });
 
-    app.post('/traces/summarytrace', async (req, res) => {
-        debugDB("Received summarytrace request.");
+    app.post('/traces/summarytrace/submit', async (req, res) => {
+        debugDB("Received summarytrace post request.");
 
         var response = {};
 
@@ -145,6 +145,36 @@ module.exports = app => {
         await newSummarytrace.save();
         response.code = 0;
         response.msg = "Summary succesfully submitted.";
+        res.send(response);
+        return;
+    });
+
+    app.post('/traces/summarytrace/get', async (req, res) => {
+        debugDB("Received summarytrace get request.");
+
+        var response = {};
+
+        const { playerID } = req.body;
+
+        if (playerID == null) {
+            response.code = 1;
+            response.msg = "Player ID not found in request.";
+            res.send(response);
+            return;
+        }
+
+        var userSummaryTrace = await SummaryTrace.findOne({ playerID: playerID}, 'playerID');
+        if (userSummaryTrace == null)
+        {
+            response.code = 2;
+            response.msg = "Player not found in database.";
+            res.send(response);
+            return;
+        }
+
+        response.code = 0;
+        response.msg = "Summary trace successfully found for player.";
+        response.data = JSON.stringify(userSummaryTrace);
         res.send(response);
         return;
     });
