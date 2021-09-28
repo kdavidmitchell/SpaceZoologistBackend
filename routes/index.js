@@ -6,6 +6,8 @@ const PlayTrace = mongoose.model('playtraces');
 const LevelTrace = mongoose.model('leveltraces');
 const DayTrace = mongoose.model('daytraces');
 const JournalTrace = mongoose.model('journaltraces');
+const SummaryTrace = mongoose.model('summarytraces');
+const SetTrace = mongoose.model('settraces');
 
 module.exports = app => {
   /* GET home page. */
