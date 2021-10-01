@@ -36,11 +36,7 @@ const summaryTraceSchema = new Schema({
     numResourceRequestsDenied: Number,
     numDrawToolUsed: Number,
     // Testing metrics
-    setTracesLevel1: [{ type: Schema.Types.ObjectId, ref: 'settraces' }],
-    setTracesLevel2: [{ type: Schema.Types.ObjectId, ref: 'settraces' }],
-    setTracesLevel3: [{ type: Schema.Types.ObjectId, ref: 'settraces' }],
-    setTracesLevel4: [{ type: Schema.Types.ObjectId, ref: 'settraces' }],
-    setTracesLevel5: [{ type: Schema.Types.ObjectId, ref: 'settraces' }],
+    setTraces: [{ type: Schema.Types.ObjectId, ref: 'settraces' }],
 });
 
 mongoose.model('summarytraces', summaryTraceSchema);

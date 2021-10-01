@@ -26,10 +26,6 @@ mongoose.connect(keys.mongoURI, {useNewUrlParser: true, useUnifiedTopology: true
 
 // Setup database models
 require('./model/Account');
-require('./model/PlayTrace');
-require('./model/LevelTrace');
-require('./model/DayTrace');
-require('./model/JournalTrace');
 require('./model/SummaryTrace');
 require('./model/SetTrace');
 
