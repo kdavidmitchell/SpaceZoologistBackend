@@ -132,7 +132,6 @@ module.exports = app => {
                 playerID : settrace.playerID,
                 result : settrace.result,
                 numDays : settrace.numDays,
-                numAttempts : settrace.numAttempts,
                 currency : settrace.currency,
                 failure : settrace.failure,
                 foodScore : settrace.foodScore,
